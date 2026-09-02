@@ -45,10 +45,12 @@
     margin: 0; background: var(--paper); color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     min-height: 100vh; display: flex; justify-content: center;
-    padding: clamp(16px, 4vw, 48px) 16px 64px;
+    padding: clamp(16px, 3vw, 40px) 16px 64px;
+    font-size: 16px;
   }
   h1, h2, h3 { font-family: "Century Gothic", "Avenir Next", Poppins, ui-sans-serif, sans-serif; font-weight: 700; text-wrap: balance; margin: 0; }
-  .shell { width: 100%; max-width: 600px; }
+  .shell { width: 100%; max-width: 1180px; }
+  .main-col { width: 100%; max-width: 760px; margin: 0 auto; }
 
   .hero-art {
     margin: 0 -16px 0; border-radius: 0; overflow: hidden;
@@ -61,76 +63,77 @@
     text-align: center; font-size: clamp(22px, 6vw, 30px); font-weight: 800;
     color: var(--primary-dim); margin: 14px 0 20px; letter-spacing: -0.01em; line-height: 1.15;
   }
-  @media (min-width: 640px) and (max-width: 899px) {
+  @media (min-width: 640px) and (max-width: 959px) {
     .hero-art { margin: 0 auto 0; width: 100%; max-width: 420px; border-radius: var(--radius); box-shadow: var(--shadow); }
   }
 
-  @media (min-width: 900px) {
-    .shell { max-width: 1040px; display: flex; align-items: flex-start; gap: 40px; }
-    .hero-col { flex: 0 0 380px; position: sticky; top: 48px; }
+  @media (min-width: 960px) {
+    body { align-items: flex-start; }
+    .shell { display: grid; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); gap: clamp(36px, 6vw, 76px); align-items: start; }
+    .hero-col { position: sticky; top: 32px; }
     .hero-art {
       margin: 0; width: 100%; max-width: 100%;
       border-radius: var(--radius); box-shadow: var(--shadow);
     }
     .hero-tagline { text-align: center; }
-    .main-col { flex: 1 1 auto; min-width: 0; }
+    .main-col { max-width: none; margin: 0; }
   }
 
   .progress { margin-bottom: 20px; }
   .progress-track { position: relative; height: 3px; background: var(--line); border-radius: 3px; margin-bottom: 14px; }
   .progress-fill { position: absolute; inset: 0 auto 0 0; height: 100%; width: 0%; background: var(--primary); border-radius: 3px; transition: width .35s ease; }
   .progress-steps { display: flex; justify-content: space-between; }
-  .progress-step { font-size: 11px; color: var(--ink-soft); text-align: center; flex: 1; letter-spacing: 0.01em; }
+  .progress-step { font-size: 13px; color: var(--ink-soft); text-align: center; flex: 1; letter-spacing: 0.01em; }
   .progress-step.active { color: var(--primary); font-weight: 700; }
   .progress-step.done { color: var(--ink); }
 
   .card {
     position: relative; background: var(--card); border: 1px solid var(--line);
     border-radius: var(--radius); box-shadow: var(--shadow);
-    padding: clamp(20px, 5vw, 32px); overflow: hidden;
+    padding: clamp(24px, 5vw, 44px); overflow: hidden;
   }
   .card::before {
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
     background: linear-gradient(90deg, #0d3b66 0%, #1565c0 50%, #8a5d00 100%);
   }
-  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); font-weight: 700; margin-bottom: 6px; }
-  .step-title { font-size: 21px; margin-bottom: 4px; }
-  .step-sub { color: var(--ink-soft); font-size: 14px; margin: 6px 0 22px; line-height: 1.5; }
+  .eyebrow { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
+  .step-title { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; margin-bottom: 6px; }
+  .step-sub { color: var(--ink-soft); font-size: 16px; margin: 8px 0 26px; line-height: 1.6; }
 
-  .field { margin-bottom: 16px; }
-  .field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
-  .field .hint { font-size: 12px; color: var(--ink-soft); margin-top: 5px; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+  .field .hint { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin-top: 7px; }
   input[type=text], input[type=tel], input[type=email], input[type=date], textarea, select {
-    width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px;
-    font-size: 14.5px; font-family: inherit; background: var(--paper); color: var(--ink);
+    width: 100%; min-height: 52px; border: 1.5px solid var(--line); border-radius: 12px; padding: 14px 16px;
+    font-size: 16px; line-height: 1.4; font-family: inherit; background: var(--paper); color: var(--ink);
   }
-  textarea { resize: vertical; min-height: 110px; }
-  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); }
+  textarea { resize: vertical; min-height: 140px; }
+  input:focus, textarea:focus, select:focus { outline: 3px solid color-mix(in srgb, var(--primary) 22%, transparent); border-color: var(--primary); }
 
-  .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .choice-card {
-    border: 1.5px solid var(--line); border-radius: 12px; padding: 14px; cursor: pointer;
+    min-height: 132px; border: 1.5px solid var(--line); border-radius: 14px; padding: 18px; cursor: pointer;
     background: var(--paper); transition: border-color .15s, background .15s;
   }
   .choice-card.selected { border-color: var(--primary); background: var(--primary-tint); }
-  .choice-card .icon { font-size: 20px; margin-bottom: 4px; }
-  .choice-card .label { font-weight: 700; font-size: 14px; }
-  .choice-card .desc { font-size: 12px; color: var(--ink-soft); margin-top: 3px; line-height: 1.4; }
+  .choice-card .icon { font-size: 26px; margin-bottom: 8px; }
+  .choice-card .label { font-weight: 800; font-size: 17px; }
+  .choice-card .desc { font-size: 14px; color: var(--ink-soft); margin-top: 5px; line-height: 1.5; }
 
   .toggle-row { display: flex; gap: 10px; }
   .toggle-btn {
-    flex: 1; border: 1.5px solid var(--line); border-radius: 10px; padding: 12px; text-align: center;
-    cursor: pointer; font-size: 13.5px; font-weight: 600; background: var(--paper); color: var(--ink-soft);
+    flex: 1; min-height: 52px; border: 1.5px solid var(--line); border-radius: 12px; padding: 14px; text-align: center;
+    cursor: pointer; font-size: 15px; font-weight: 700; background: var(--paper); color: var(--ink-soft);
   }
   .toggle-btn.selected { border-color: var(--primary); background: var(--primary-tint); color: var(--primary-dim); }
 
   .info-box {
     background: var(--gold-tint); border: 1px solid rgba(138,93,0,0.25); border-radius: 10px;
-    padding: 12px 14px; font-size: 12.5px; color: var(--gold); line-height: 1.5; margin: 16px 0;
+    padding: 16px 18px; font-size: 14px; color: var(--gold); line-height: 1.6; margin: 18px 0;
   }
   .confidential-box {
     background: var(--primary-tint); border: 1px solid rgba(20,118,110,0.25); border-radius: 10px;
-    padding: 12px 14px; font-size: 12.5px; color: var(--primary-dim); line-height: 1.5; margin: 16px 0;
+    padding: 16px 18px; font-size: 14px; color: var(--primary-dim); line-height: 1.6; margin: 18px 0;
   }
 
   .anon-fields { display: none; }
@@ -138,7 +141,7 @@
 
   .btn-row { display: flex; gap: 10px; margin-top: 24px; }
   button {
-    font-family: inherit; font-size: 14.5px; font-weight: 700; border-radius: 10px; padding: 13px 20px;
+    min-height: 54px; font-family: inherit; font-size: 16px; font-weight: 800; border-radius: 12px; padding: 15px 22px;
     cursor: pointer; border: none;
   }
   .btn-primary { background: var(--primary); color: #fff; flex: 1; }
@@ -165,6 +168,20 @@
   .hidden { display: none !important; }
   .checkbox-row { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
   .checkbox-row input { margin-top: 3px; }
+
+  @media (max-width: 560px) {
+    body { padding: 14px 14px 40px; }
+    .progress { margin-bottom: 18px; }
+    .progress-track { height: 4px; }
+    .progress-step { font-size: 12px; }
+    .card { padding: 26px 20px 24px; border-radius: 16px; }
+    .choice-grid { grid-template-columns: 1fr; gap: 12px; }
+    .choice-card { min-height: 0; padding: 17px; }
+    .btn-row { flex-direction: column-reverse; gap: 12px; }
+    .btn-row .btn-primary, .btn-row .btn-secondary { width: 100%; }
+    .toggle-row { flex-direction: column; }
+    .checkbox-row { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
