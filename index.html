@@ -598,7 +598,7 @@ var randomPart = Math.random().toString(36).slice(2, 10).toUpperCase().padEnd(8,
       payload.protocol = protocolo;
       var body = new URLSearchParams();
       body.set('payload', JSON.stringify(payload));
-      fetch('COLE_AQUI_A_URL_DO_APPS_SCRIPT_IMPLANTADO', {
+      fetch('https://script.google.com/macros/s/AKfycbx91MDMNoESYJenlWkA3AKyXQM4EEOLuLgMUxV5BR7BXmM9pFzI7L-omlUDu2Qo16wW/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
