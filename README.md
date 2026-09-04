@@ -1,5 +1,9 @@
 # Manaíra na Escuta — Canal de Escuta / Ouvidoria
 
+> **Transferência para a TI:** comece por
+> [`docs/transferencia/README.md`](docs/transferencia/README.md), que reúne a
+> arquitetura, os acessos a entregar e os procedimentos de continuidade.
+
 Portal do Canal de Escuta do Manaíra Shopping. Mesma arquitetura e mesmo
 fluxo do canal irmão do Mangabeira Shopping (ver
 [github.com/Gersonfarias777/canal-de-escuta](https://github.com/Gersonfarias777/canal-de-escuta)),
@@ -20,6 +24,7 @@ Google Apps Script (sem hospedagem paga, grava direto em planilha).
 
 - `apps-script/Code.gs` — backend (Google Apps Script): grava na planilha,
   sobe anexo pro Drive, gera protocolo, envia e-mail, monta os dashboards.
+- `apps-script/appsscript.json` — manifesto reproduzível do Apps Script.
 - `apps-script/Index.html` — formulário em wizard, servido diretamente pelo
   Apps Script (usa `google.script.run`).
 - `apps-script/Dashboard.html` — painel executivo (visão gerencial), servido
@@ -30,6 +35,8 @@ Google Apps Script (sem hospedagem paga, grava direto em planilha).
   pela URL real do deploy (linha ~601).
 - `assets/` — arte oficial do Manaíra na Escuta (logo, contato, fotos da
   equipe) usada como imagem de topo do formulário.
+- `docs/transferencia/` — auditoria, inventários, mapa de dados, continuidade
+  e validação do recebimento pela TI.
 
 ## Como publicar (Google Apps Script)
 
@@ -82,7 +89,7 @@ em `Code.gs`). Ajuste esse domínio se a equipe usar outro.
   `83 99984-4977`) e fotos da equipe.
 - Domínio de acesso ao dashboard: `@manairashopping.com.br`.
 
-## Pendências antes de publicar
+## Checklist para uma nova implantação ou homologação
 
 - [ ] Criar a planilha do Google Sheets e colar o script (passos acima).
 - [ ] Rodar `authorizeCanalEscuta` e implantar como Web App.
